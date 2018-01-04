@@ -34,7 +34,7 @@ public class MyRealm extends AuthorizingRealm{
 		User userModel = userService.getUser(user);
 		if(userModel!=null){
 			 //将查询到的用户帐号存放到authenticationInfo用于后面权限判断。第三个参数随便放什么参数
-			 AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getUserName(),user.getPassWord(),"a");
+			 AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userModel.getUserName(),userModel.getPassWord(),"a");
 		}
 		return null;
 	}

@@ -2,7 +2,7 @@ package com.lhy.model;
 
 public class User {
 	/**用户id*/
-	private int id;
+	private Integer id;
 	/**用户名*/
 	private String userName;
 	/**密码*/
@@ -10,8 +10,9 @@ public class User {
 	/**角色id*/
 	private int roleId;
 	
+	
 	/**用户id*/
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	/**用户名*/
@@ -27,7 +28,7 @@ public class User {
 		return roleId;
 	}
 	/**用户id*/
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	/**用户名*/
@@ -42,6 +43,8 @@ public class User {
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
+	
+	
 	
 	
 }

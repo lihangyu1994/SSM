@@ -14,8 +14,8 @@
 	<select id="getUser" parameterType="User" resultType="User">
 		select <include refid="Base_Column_List"/>
 		 from t_user
-		 <where >
-		 	<if test="id!=null">
+		 <where>
+ 		 	<if test="id!=null">
 		 		id=#{id}
 		 	</if>
 		 	<if test="userName!=null">
@@ -23,5 +23,5 @@
 		 	</if>
 		 </where>
 	</select>
-
+	
 </mapper>
