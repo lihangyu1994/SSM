@@ -11,13 +11,13 @@
 		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 	<!-- 强大的定时器 -->
-	<bean name="job" class="org.springframework.scheduling.quartz.JobDetailBean">
+<!-- 	<bean name="job" class="org.springframework.scheduling.quartz.JobDetailBean">
 		<property name="jobClass" value="com.lhy.quartz.Job" />
 		<property name="durability" value="true"></property>
 	</bean>
 	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail" ref="job" />
-		<property name="cronExpression" value="0/5 * * * * ?" /><!-- 每五秒执行一次 -->
+		<property name="cronExpression" value="0/5 * * * * ?" />每五秒执行一次
 	</bean>
 	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 	    <property name="triggers">
@@ -27,5 +27,5 @@
     	</property>
 		<property name="jobFactory" ref="quartzFactory"></property> 
 	</bean>
-	 <bean id="quartzFactory" class="com.lhy.utils.MyJobFactory"></bean>
+	 <bean id="quartzFactory" class="com.lhy.utils.MyJobFactory"></bean> -->
 </beans>
