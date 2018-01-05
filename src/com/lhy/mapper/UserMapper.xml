@@ -12,7 +12,8 @@
 	</sql>
 	
 	<select id="getUser" parameterType="User" resultType="User">
-		select <include refid="Base_Column_List"/>
+		 select 
+		<include refid="Base_Column_List"/>
 		 from t_user
 		 <where>
  		 	<if test="id!=null">
@@ -22,6 +23,14 @@
 		 		and userName=#{userName}
 		 	</if>
 		 </where>
+	</select>
+	
+	<select id="findUserRoles" parameterType="String" resultType="String">
+		select r.roleName from t_user u  left join t_role r on u.roleId = r.id where u.userName=#{userName}
+	</select>
+	
+	<select id="findPermissions" parameterType="String" resultType="String">
+		select p.permissionName from t_user u left join t_permission p on u.roleId = p.roleId where u.userName=#{userName}
 	</select>
 	
 </mapper>

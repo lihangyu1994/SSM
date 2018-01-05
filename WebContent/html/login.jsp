@@ -11,10 +11,11 @@ String path = request.getContextPath();
 %>
 
 <body>
-<form action="<%=path%>/User/login">
+<form action="<%=path%>/User/login" method="post">
 	用户名:<input type="text" name="userName" id="userName">
 	密码:<input type="text" name="passWord" id="passWord">
 	<input type="submit" value="登录">
+	${error}
 </form>
 
 </body>

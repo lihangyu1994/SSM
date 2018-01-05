@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	成功了
+	欢迎你,${userName} 同学
 </body>
 </html>

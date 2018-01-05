@@ -37,7 +37,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.lhy.mapper"></property>
 		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"></property> -->
-	<!-- 	MapperScannerConfigurer坑的地方 -->
+	<!-- 	MapperScannerConfigurer坑的地方,会先在引入数据库配置文件导入前启动,所以识别${jdbc.driverClassName}为字段串-->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
@@ -67,19 +67,20 @@
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager"/>
         <!-- 身份认证失败，则跳转到登录页面的配置 -->
-        <property name="loginUrl" value="/html/login.jsp"/>
+        <property name="loginUrl" value="/html/loginFailure.jsp"/>
         <!-- 权限认证失败，则跳转到指定页面 -->
         <property name="unauthorizedUrl" value="/html/nopower.jsp"/>
         <!-- Shiro连接约束配置,即过滤链的定义 -->
         <property name="filterChainDefinitions">
             <value>
                 <!--anon 表示匿名访问，不需要认证以及授权-->
-                /login=anon
+                 /login=anon 
                 <!--authc表示需要认证 没有登录是不能访问这个地址的-->
-                /html/user*=authc 
+              	/html/list*=authc
                 <!--没有登录是不能访问这个地址的以及 登录用户没有指定权限是不能访问的 -->
-                /html/student*=roles[teacher]
-                /html/teacher*=perms["user:create"]
+                /html/index.jsp=roles[admin]
+                <!--如果角色和权限都设置了,必须都满足,不认会认证失败  -->
+                /html/index.jsp=perms["user:create"]
             </value>
         </property>
     </bean>

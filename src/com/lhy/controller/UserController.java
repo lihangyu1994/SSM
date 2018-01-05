@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lhy.model.User;
 import com.lhy.service.UserService;
@@ -34,7 +35,7 @@ public class UserController {
 			return "succeed";   
 		}
 	}*/
-	@RequestMapping("/login")
+	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(User user,Model model,HttpSession session){
 		 Subject subject = SecurityUtils.getSubject();
 		 UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(),user.getPassWord());
@@ -42,7 +43,7 @@ public class UserController {
 			 subject.login(token);
 			 session.setAttribute("userId", user.getId());
 		     session.setAttribute("userName", user.getUserName());
-		     return "index";
+		     return "succeed";
 		 }catch(Exception e){
 			 model.addAttribute("error","登录账户或密码错误");
 			 return "login";
