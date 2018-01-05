@@ -6,7 +6,6 @@
 	<!-- 实体类,简称 -设置别名 -->
 	<typeAliases>
 		<typeAlias alias="User" type="com.lhy.model.User" />
-		<!-- <typeAlias alias="Diary" type="com.tgb.model.Diary" /> -->
 	</typeAliases>
 
 	<!-- 实体接口映射资源 -->
@@ -15,7 +14,6 @@
 	-->
 	<mappers>
 		<mapper resource="com/lhy/mapper/UserMapper.xml" />
-		<!-- <mapper resource="com/tgb/mapper/diaryMapper.xml" /> -->
 	</mappers>
 
 </configuration>  
